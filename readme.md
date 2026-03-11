@@ -9,7 +9,9 @@ nano ~/myscript.sh
 Inside the file, write your commands. For example:
 
 #!/bin/bash
+
 cd /home/pi/your_project
+
 python3 server.py
 
 
@@ -32,12 +34,19 @@ For Flask
 nano ~/start-flask.sh
 
 #!/bin/bash
+
 sleep 10
+
 cd /home/pi/your_project
+
 source venv/bin/activate
+
 export FLASK_APP=server.py
+
 export FLASK_ENV=production   # or development
+
 flask run --host=0.0.0.0 --port=5000
+
 chmod +x ~/start-flask.sh
 
 for browser to open auto (chromium is taken here you can take any browser of your choice)
@@ -50,9 +59,15 @@ nano ~/chromium-start.sh
 Add the following commands:
 
 #!/bin/bash
+
 sleep 10
-chromium-browser --app=http://localhost:5173 --start-fullscreen --noerrdialogs --disable-infobars
+
+chromium-browser --app=http://localhost:5173 --start-fullscreen --noerrdialogs 
+--disable-infobars
+
 Make it executable:
+
 chmod +x ~/chromium-start.sh
+
 Add to autostart via crontab:
 @reboot /home/pi/chromium-start.sh
