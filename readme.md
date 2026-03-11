@@ -29,6 +29,33 @@ Add this line at the end:
 @reboot /home/pi/myscript.sh
 
 
+For Flask
+---
+
+## Step 1: Create a Shell Script for Flask
+
+1. Open a terminal on your Raspberry Pi.  
+2. Create the script:
+
+```bash
+nano ~/start-flask.sh
+
+#!/bin/bash
+# Wait for system to fully boot
+sleep 10
+
+# Navigate to your project directory
+cd /home/pi/your_project
+
+# Activate your virtual environment
+source venv/bin/activate
+
+# Start Flask
+export FLASK_APP=server.py
+export FLASK_ENV=production   # or development
+flask run --host=0.0.0.0 --port=5000
+chmod +x ~/start-flask.sh
+
 for browser to open auto (chromium is taken here you can take any browser of your choice)
 For Chromium (Auto-start in Kiosk Mode)
 
